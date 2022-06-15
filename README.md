@@ -2,5 +2,8 @@
 Docker image for nginx/webdav based rest cache for bazel.
 
 ## Usage
-docker run -d -p 8082:80 jupp0r/bazel-nginx-rest-cache
-bazel --host_jvm_args=-Dbazel.DigestFunction=SHA1 build --spawn_strategy=remote --rest_cache_url=http://localhost:8082/cache/ <target>
+```
+docker build -t nginx-bazel-cache . 
+docker run -p 8082:80 nginx-bazel-cache
+bazel build --remote_cache=http://localhost:8082 //...
+```
