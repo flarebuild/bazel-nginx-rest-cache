@@ -3,7 +3,8 @@ Docker image for nginx/webdav based rest cache for bazel.
 
 ## Usage
 ```
-docker build -t nginx-bazel-cache . 
-docker run -p 8082:80 nginx-bazel-cache
-bazel build --remote_cache=http://localhost:8082 //...
+docker build -t flare/nginx-bazel-cache . 
+docker run -p 8080:80 -v /tmp/nginxbazel/cache:/tmp/nginxbazel/cache flare/nginx-bazel-cache:latest
+bazel build --remote_cache=http://localhost:8080/cache //...
+ls -al /tmp/nginxbazel/cache
 ```
