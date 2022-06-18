@@ -1,4 +1,4 @@
-FROM --platform=arm64 nginx:alpine
+FROM nginx:alpine
 COPY nginx.conf /etc/nginx/nginx.conf
 
 EXPOSE 80
